@@ -1,0 +1,52 @@
+/* SeedSans Font Faces */
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-Light-subset.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-LightItalic-subset.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-Regular-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-RegularItalic-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-Medium-subset.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeedSans';
+  src: url('/fonts/SeedSans-MediumItalic-subset.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+* {
+  font-family: 'SeedSans', sans-serif;
+}
