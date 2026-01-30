@@ -47,6 +47,134 @@
   font-display: swap;
 }
 
+:root {
+  /* ==========================================================================
+     Seed Design Tokens - Aligned with Figma Variables
+     See: @seed-health/tokens for official token definitions
+     ========================================================================== */
+  
+  /* Core Colors (from Figma: container/, text/, actions/) */
+  --seed-green: #1C3A13;
+  --snow-white: #fcfcf7;
+  --container-lightest: #ffffff;
+  --sage: #d0d7d3;
+  
+  /* Legacy aliases for backwards compatibility */
+  --color--seedgreen: var(--seed-green);
+  --font--family: 'SeedSans', sans-serif;
+  
+  /* Text Colors */
+  --text-primary: var(--seed-green);
+  --text-inverse: var(--snow-white);
+  --text-secondary: rgba(28, 58, 19, 0.7);
+  
+  /* Extended Palette (from Figma: extended palette/) */
+  --indigo-blue: #4d628d;
+  --indigo-blue-light: #cdd6d1;
+  --asparagus-green: #d0d9b9;
+  --fluorescent-green: #D3FA99;
+  
+  /* Outline Colors */
+  --outline-neutral: #d2d8d0;
+  
+  /* Scrim/Glass Effects (from Figma: scrim/) */
+  --glass-dark-35: rgba(87, 94, 85, 0.35);
+  --glass-dark-08: rgba(87, 94, 85, 0.08);
+  
+  /* Typography Sizes (from Figma: typography/size/) */
+  --text-size-250: 10px;
+  --text-size-300: 12px;
+  --text-size-350: 14px;
+  --text-size-400: 16px;
+  --text-size-500: 20px;
+  --text-size-600: 24px;
+  --text-size-800: 32px;
+  --text-size-1200: 48px;
+  --text-size-1600: 64px;
+  
+  /* Typography Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.2;
+  --line-height-relaxed: 1.4;
+  
+  /* Spacing (from Figma: gap/, spacing/) */
+  --gap-4: 4px;
+  --gap-8: 8px;
+  --gap-16: 16px;
+  --gap-24: 24px;
+  --gap-32: 32px;
+  
+  /* Border Radius (from Figma: radius/) */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 32px;
+  --radius-full: 100px;
+  
+  /* Effects */
+  --blur-frosted-light: 38px;
+  --blur-frosted-strong: 75px;
+  --shadow-subtle: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'SeedSans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--sage);
+  color: var(--seed-green);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--seed-green);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable scroll-linked animations */
+  .pin-spacer {
+    display: none !important;
+  }
 }
