@@ -11,7 +11,10 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@seed-health/tokens": "^1.0.11",
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.14.2",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
