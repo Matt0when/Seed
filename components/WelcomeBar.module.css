@@ -1,0 +1,186 @@
+/* WelcomeBar - Pixel-perfect implementation matching Figma */
+
+.welcomeBar {
+  position: fixed;
+  width: 100%;
+  top: 64px; /* Below header */
+  z-index: 90;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 44px 44px;
+  background: transparent;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in;
+}
+
+.welcomeBar > * {
+  pointer-events: auto;
+}
+
+/* Left side - Greeting section */
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.welcomeText {
+  font-size: var(--typography-size-600, 24px);
+  font-weight: 400;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.36px;
+  line-height: 1.2;
+  margin: 0;
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: 6px;
+  right: -10px;
+}
+
+/* User info row */
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--appearance-measurement-100, 4px);
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  background-color: var(--color-primary-seed-green-t20);
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  align-items: start;
+  justify-items: start;
+  line-height: 0;
+  position: relative;
+}
+
+.avatarInner {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full, 100px);
+  background-color: transparent; /* Figma: no background, image fills completely */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+  overflow: hidden;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.avatarPlaceholder {
+  font-size: var(--typography-size-250, 10px);
+  color: var(--color-primary-seed-green);
+  font-weight: 500;
+}
+
+.userName {
+  font-size: var(--typography-size-600, 24px);
+  font-weight: 400;
+  color: var(--extended-palette-indigo-blue);
+  letter-spacing: -0.36px;
+  line-height: 1.2;
+}
+
+/* Right side - Stats section */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: var(--appearance-measurement-800, 32px);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--appearance-measurement-100, 4px);
+}
+
+.statValue {
+  display: flex;
+  align-items: center;
+  gap: var(--appearance-measurement-100, 4px);
+}
+
+.iconContainer {
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.statIcon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.statNumber {
+  font-size: var(--typography-size-600, 24px);
+  font-weight: 400;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.36px;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: var(--typography-size-250, 10px);
+  font-weight: 400;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.05px;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .welcomeBar {
+    width: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .welcomeBar {
+    left: var(--appearance-measurement-600, 24px);
+    right: var(--appearance-measurement-600, 24px);
+  }
+  
+  .stats {
+    gap: var(--appearance-measurement-600, 24px);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcomeBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--appearance-measurement-600, 24px);
+  }
+  
+  .stats {
+    gap: var(--appearance-measurement-400, 16px);
+    flex-wrap: wrap;
+  }
+  
+  .welcomeText,
+  .userName,
+  .statNumber {
+    font-size: var(--typography-size-500, 20px);
+  }
+}
