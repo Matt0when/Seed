@@ -19,6 +19,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          {/* Favicon */}
+          <link rel="icon" href="/favicon.png" type="image/png" />
+          <link rel="shortcut icon" href="/favicon.png" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          
+          {/* Font preloads */}
           <link
             rel="preload"
             href="/fonts/SeedSans-Light-subset.woff2"
