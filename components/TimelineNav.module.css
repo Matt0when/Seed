@@ -1,0 +1,130 @@
+.timelineNav {
+  position: fixed;
+  bottom: 126px; /* 96px footer height + 30px gap */
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+  height: 36px;
+}
+
+.timelineItems {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 1240px;
+}
+
+/* Animated pill indicator */
+.activePill {
+  position: absolute;
+  top: 50%;
+  height: 32px;
+  background-color: var(--seed-green);
+  border-radius: 100px;
+  transform: translateY(-50%);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.chapter {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 164px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.chapter:hover:not(.active) {
+  background-color: var(--color-primary-seed-green-t5);
+}
+
+.chapter:focus-visible {
+  outline: 2px solid var(--seed-green);
+  outline-offset: 2px;
+}
+
+.chapterLabel {
+  font-size: var(--typography-size-350, 14px);
+  font-weight: 500;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.14px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.chapter.active .chapterLabel {
+  color: var(--snow-white);
+}
+
+.connector {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-neutral-frosted-glass-t35);
+  border-radius: 32px;
+  overflow: hidden;
+  min-width: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.connectorProgress {
+  height: 100%;
+  background-color: var(--seed-green);
+  transition: width 0.3s ease-out;
+}
+
+.pauseButton {
+  position: absolute;
+  right: var(--appearance-measurement-400, 16px);
+  background-color: var(--color-neutral-frosted-glass-t35);
+  border: none;
+  border-radius: 50px;
+  padding: 10px var(--appearance-measurement-400, 16px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.pauseButton:hover {
+  background-color: rgba(87, 94, 85, 0.5); /* No exact token for 0.5 - hover state */
+}
+
+.pauseButton:focus-visible {
+  outline: 2px solid var(--snow-white);
+  outline-offset: 2px;
+}
+
+.pauseIcon {
+  font-size: var(--typography-size-300, 12px);
+  color: var(--color-primary-snow-white);
+  letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .timelineNav {
+    padding: 0 var(--appearance-measurement-600, 24px);
+  }
+  
+  .chapterLabel {
+    font-size: var(--typography-size-300, 12px);
+  }
+  
+  .connector {
+    min-width: 20px;
+  }
+}
