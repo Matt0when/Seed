@@ -1,0 +1,112 @@
+/* Header container - 64px height, space-between layout */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 8px 16px;
+  backdrop-filter: blur(38px);
+  -webkit-backdrop-filter: blur(38px);
+  border-radius: 32px 32px 0 0;
+  background: transparent;
+}
+
+/* Left navigation container - holds logo and nav links */
+.navLeft {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 6px;
+  border-radius: 32px;
+}
+
+/* Right navigation container - holds Account and Refer */
+.navRight {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 6px;
+  gap: var(--appearance-measurement-200, 8px);
+  border-radius: 32px;
+}
+
+/* Seed Logo - Seed Sans Medium, 20px */
+.seedLogo {
+  color: var(--color--seedgreen, var(--seed-green));
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: var(--font--family, 'SeedSans', sans-serif);
+  font-size: var(--typography-size-500, 20px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.05px;
+  text-decoration: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px var(--appearance-measurement-400, 16px);
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Green circle after "Seed" text */
+.seedLogo::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color--seedgreen, var(--seed-green));
+  margin-left: var(--appearance-measurement-100, 4px);
+  vertical-align: middle;
+}
+
+/* Screen reader only text */
+.screenreaderOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Navigation links - Seed Sans Regular, 16px */
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  font-size: var(--typography-size-400, 16px);
+  font-weight: 400;
+  color: var(--color-primary-seed-green);
+  text-decoration: none;
+  padding: 10px var(--appearance-measurement-600, 24px);
+  border-radius: 100px;
+  transition: background-color 0.2s ease;
+  letter-spacing: -0.04px;
+  line-height: normal;
+}
+
+.navLink:hover {
+  background-color: var(--color-primary-seed-green-t5);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--seed-green);
+  outline-offset: 2px;
+  border-radius: 100px;
+}
