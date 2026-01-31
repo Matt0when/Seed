@@ -1,0 +1,251 @@
+/* Base section styles */
+.section {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 100px;
+  box-sizing: border-box;
+  position: relative;
+  /* No snap scroll - using smooth GSAP-driven animations */
+}
+
+/* Intro Section */
+.intro {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%); /* Custom gradient - no token */
+  flex-direction: column;
+  gap: var(--appearance-measurement-600, 24px);
+}
+
+.introContent {
+  display: flex;
+  gap: 48px; /* No exact token for 48px */
+  align-items: center;
+}
+
+.introText {
+  /* Figma: fixed/title large - 32px, 350 weight, -0.64px tracking, 1.1 line-height */
+  font-size: var(--typography-size-800, 32px);
+  font-weight: 350;
+  color: var(--color-primary-white);
+  letter-spacing: -0.64px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.progressBar {
+  position: absolute;
+  left: 0;
+  top: 206px;
+  width: 10px;
+  height: calc(100% - 206px);
+  background: var(--color-primary-seed-green);
+}
+
+/* Split Layout (First 7 Days, Weeks 2-4) */
+.first7days,
+.weeks2to4 {
+  background-color: var(--sage);
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  max-width: 1240px;
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  will-change: transform, opacity, filter;
+}
+
+.label {
+  /* Figma: fixed/label medium - 16px, 500 weight, -0.16px tracking, 1.4 line-height */
+  font-size: var(--typography-size-400, 16px);
+  font-weight: 500;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.16px;
+  line-height: 1.4;
+  margin: 0 0 var(--appearance-measurement-100, 4px) 0;
+}
+
+.bigNumber {
+  /* Figma: desktop display/large - 64px, 350 weight, -1.28px tracking, 1.1 line-height */
+  font-size: var(--typography-size-1600, 64px);
+  font-weight: 350;
+  color: var(--color-primary-seed-green);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -1.28px;
+}
+
+.mediaPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+}
+
+.placeholderBox {
+  width: 640px;
+  height: 405px;
+  background: var(--color-primary-seed-green-t10);
+  border-radius: var(--radius-medium, 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-seed-green);
+  font-size: var(--typography-size-350, 14px);
+  border: 1px dashed var(--color-primary-seed-green-t20);
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--appearance-measurement-400, 16px);
+  will-change: transform, opacity, filter;
+}
+
+.headline {
+  /* Figma: fixed/label x-large - 20px, 500 weight, -0.2px tracking, 1.4 line-height */
+  font-size: var(--typography-size-500, 20px);
+  font-weight: 500;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.body {
+  /* Figma: fixed/body medium - 16px, 350 weight, -0.16px tracking, 1.4 line-height */
+  font-size: var(--typography-size-400, 16px);
+  font-weight: 350;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.link {
+  /* Figma: fixed/label small - 14px, 500 weight, -0.14px tracking, 1.4 line-height */
+  display: flex;
+  align-items: center;
+  gap: var(--appearance-measurement-200, 8px);
+  font-size: var(--typography-size-350, 14px);
+  font-weight: 500;
+  color: var(--color-primary-seed-green);
+  letter-spacing: -0.14px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.arrow {
+  font-size: var(--typography-size-400, 16px);
+}
+
+/* Card Grid (Weeks 2-4) */
+.cardGrid {
+  display: flex;
+  gap: var(--appearance-measurement-500, 20px);
+  will-change: transform, opacity, filter;
+}
+
+.card {
+  width: 298px;
+  height: 405px;
+  border-radius: var(--radius-medium, 16px);
+  overflow: hidden;
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary-seed-green-t15);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--appearance-measurement-600, 24px);
+  font-size: var(--typography-size-350, 14px);
+  color: var(--color-primary-seed-green);
+  text-align: center;
+}
+
+/* 3 Months Section */
+.threeMonths {
+  background: linear-gradient(180deg, #3d5a3a 0%, #2d4a2a 100%); /* Custom gradient - no token */
+  flex-direction: column;
+  gap: 48px;
+}
+
+.centerContent {
+  text-align: center;
+}
+
+.displayTitle {
+  /* Figma: desktop display/large - 64px, 350 weight, -1.28px tracking, 1.1 line-height */
+  font-size: var(--typography-size-1600, 64px);
+  font-weight: 350;
+  color: var(--color-primary-white);
+  line-height: 1.1;
+  margin: var(--appearance-measurement-400, 16px) 0;
+  letter-spacing: -1.28px;
+}
+
+.subtitle {
+  /* Figma: fixed/title small - 24px, 350 weight, -0.36px tracking, 1.2 line-height */
+  font-size: var(--typography-size-600, 24px);
+  font-weight: 350;
+  color: var(--color-primary-white);
+  letter-spacing: -0.36px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.threeMonths .label {
+  color: var(--color-primary-white);
+  opacity: var(--appearance-opacity-70, 0.7);
+}
+
+.statsGrid {
+  display: flex;
+  gap: 64px; /* No exact token */
+  margin-top: var(--appearance-measurement-800, 32px);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--appearance-measurement-200, 8px);
+}
+
+.statValue {
+  /* Figma: desktop display/small - 48px, 350 weight, -0.96px tracking, 1.0 line-height */
+  font-size: var(--typography-size-1200, 48px);
+  font-weight: 350;
+  color: var(--color-primary-white);
+  letter-spacing: -0.96px;
+  line-height: 1;
+}
+
+.statLabel {
+  /* Figma: fixed/body x-small - 12px, 350 weight, -0.06px tracking, 1.4 line-height */
+  font-size: var(--typography-size-300, 12px);
+  font-weight: 350;
+  color: var(--color-primary-white);
+  letter-spacing: -0.06px;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 150px;
+}
