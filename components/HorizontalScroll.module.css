@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  height: 100vh;
+  will-change: transform;
+}
+
+.sectionWrapper {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+/* WhatsNextTransition needs more scroll space for full animation */
+.sectionWrapper[data-section="whats-next"] {
+  flex: 0 0 200vw;
+  width: 200vw;
+}
+
+/* Ensure sections fill their wrapper */
+.sectionWrapper > section,
+.sectionWrapper > div {
+  width: 100%;
+  height: 100%;
+}
