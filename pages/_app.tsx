@@ -1,5 +1,8 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+// Import official Seed design tokens for typography classes and effects
+import '@seed-health/tokens/css/styles.css';
+import '@seed-health/tokens/css/variables.css';
 import 'styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -8,10 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1"
+          content="width=device-width, height=device-height, initial-scale=1"
         />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Seed Frontend Engineering Takehome</title>
+        <meta charSet="utf-8" />
       </Head>
       <Component {...pageProps} />
     </>
