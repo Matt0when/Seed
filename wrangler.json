@@ -1,0 +1,8 @@
+{
+  "name": "seed-take-home",
+  "compatibility_date": "2025-10-31",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "single-page-application"
+  }
+}
