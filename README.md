@@ -1,8 +1,6 @@
 # Seed Frontend Engineering Take-Home
 
-Next.js project using the Pages router
-- Feel free to modify file structure, create components, add tests, rename things, etc
-- You can style however you'd like (e.g., styled-components, css modules, scss, etc)
+Implementation of two consecutive chapters from the Figma design: the **Clouds/Sky transition** ("Your Health. Our Shared World.") and the **Globe/Human-Planet Axis** section.
 
 ## Getting Started
 
@@ -11,92 +9,63 @@ npm install
 npm run dev
 ```
 
-The app should be available at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+---
+
+## Technical Decisions
+
+**Animation & Scroll**
+- **GSAP + ScrollTrigger** powers all scroll-linked animations with `scrub` for smooth bidirectional control
+- Vertical scroll drives horizontal content progression (down = forward, up = backward)
+- Pin-based scrolling locks the clouds chapter in place over 200vh of scroll distance
+- `clip-path` animation for the pill mask effect (GPU-accelerated, no repaints)
+
+**Architecture**
+- **CSS Modules** for component-scoped styling, matching the existing project patterns
+- **Dynamic imports** with `ssr: false` to avoid GSAP hydration mismatches in Next.js
+- Semantic HTML with proper heading hierarchy and ARIA labels for accessibility
+
+**Assets**
+- Video backgrounds (`clouds.mp4`, `globe.mp4`) served statically from `public/`
+- SeedSans font family (provided in starter)
+
+---
+
+## Design Latitude
+
+- Defined CSS custom properties for colors, spacing, and typography based on Figma specs where `@seed-health/tokens` lacked exact matches
+- Simplified timeline navigation to focus on the two implemented chapters
+- Added gradient overlay on video backgrounds to ensure text legibility
+
+---
+
+## What I'd Improve With More Time
+
+- **Canvas frame sequence** for the cloud video (smoother scrubbing than video `currentTime`)
+- **Lenis smooth scroll** for a more polished scroll feel
+- **Responsive breakpoints** (current implementation targets 1440px desktop)
+- **Unit tests** for scroll progress calculations and component rendering
+- **Keyboard navigation** for timeline chapter selection
+- **Performance** - lazy-load videos, compress assets, add loading states
+
+---
 
 ## Project Structure
 
-- `pages/` - Next.js pages (uses Pages Router)
-- `pages/index.tsx` - Homepage at /
-- `pages/_app.tsx` - App wrapper, imports a styles/globals.css
-- `styles/globals.css` - Global CSS with SeedSans font face definitions
-- `public/fonts/` - SeedSans font files
-- `pages/_document.tsx` - Next.js _document, preloads SeedSans font files
-
-## Design Tokens
-
-Design tokens are imported through the @seed-health/tokens package, and they can be used
-in a variety of ways. Here's some examples below, but they may need to be tweaked to function
-
-### CSS Variables
-
-```jsx
-import '@seed-health/tokens/build/css/variables.css';
-import '@seed-health/tokens/build/css/styles.css';
-
-function Button() {
-  return (
-    <button
-      className="text-fixed-body-medium"
-      style={{
-        backgroundColor: 'var(--color-primary-500)',
-        padding: 'var(--spacing-medium)'
-      }}>
-      Click me
-    </button>
-  );
-}
 ```
-
-### JavaScript/TypeScript
-
-```jsx
-import * as tokens from '@seed-health/tokens';
-
-function Button() {
-  return (
-    <button style={{
-      ...tokens.FixedLabelMedium,
-      padding: tokens.SpacingX2
-    }}>
-      Click me
-    </button>
-  );
-}
-```
-
-### SCSS
-
-```scss
-@use '@seed-health/tokens/build/scss/variables' as *;
-@use '@seed-health/tokens/build/scss/mixins' as *;
-
-.button {
-  @include text-fixed-label-medium;
-  background-color: $color-primary-500;
-  padding: $spacing-medium;
-}
-```
-
-### CSS Modules
-
-```css
-.button {
-  background-color: var(--color-primary-500);
-  padding: var(--spacing-medium);
-}
-```
-
-### Styled Components
-
-```tsx
-import { GlobalTokenStyles } from '@seed-health/tokens/react';
-
-function App() {
-  return (
-    <>
-      <GlobalTokenStyles />
-      {/* Your app content */}
-    </>
-  );
-}
+pages/
+  index.tsx        # Homepage
+  _app.tsx         # App wrapper, imports globals.css
+  _document.tsx    # Preloads SeedSans fonts
+components/
+  WhatsNextTransition/   # Clouds + Globe chapters
+  HorizontalScroll.tsx   # Scroll-driven container
+  TimelineNav.tsx        # Chapter navigation
+styles/
+  globals.css      # Global styles + font faces
+public/
+  fonts/           # SeedSans woff2 files
+  clouds.mp4       # Clouds background video
+  globe.mp4        # Globe background video
 ```
