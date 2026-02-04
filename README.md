@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Open [https://seed.mattowens566.workers.dev/](https://seed.mattowens566.workers.dev/) to view the live app.
 
 ---
 
